@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿using Accessibility;
+using GalaSoft.MvvmLight.Command;
 using Newtonsoft.Json;
 using pinacoteca_final_211G0371.Models;
 using System;
@@ -140,6 +141,8 @@ namespace pinacoteca_final_211G0371.ViewModels
                 }
                 PinotecaModels copia = new PinotecaModels()
                 {
+                    Fk = Pinoteca.Fk,
+                    Nombre = Pinoteca.Nombre,
                     Ciudad = Pinoteca.Ciudad,
                     Dirreccion = Pinoteca.Dirreccion,
                     Mt2 = Pinoteca.Mt2,
