@@ -1,0 +1,39 @@
+﻿<Window x:Class="pinacoteca_final_211G0371.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pinacoteca_final_211G0371.Views"
+       xmlns:vm="clr-namespace:pinacoteca_final_211G0371.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:PinotecaClase></vm:PinotecaClase>
+    </Window.DataContext>
+    <ContentControl>
+        <ContentControl.Resources>
+            <local:AgreagarViews x:Key="agregar"></local:AgreagarViews>
+            <local:EditarViewds x:Key="editar"></local:EditarViewds>
+            <local:EliminarViews x:Key="eliminar"></local:EliminarViews>
+            <local:VerPinotecaViews x:Key="ver"></local:VerPinotecaViews>
+        </ContentControl.Resources>
+        <ContentControl.Style>
+            <Style TargetType="ContentControl">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Vista}" Value="ver">
+                        <Setter Property="Content" Value="{StaticResource ver}"></Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Vista}" Value="agregar">
+                        <Setter Property="Content" Value="{StaticResource agregar}"></Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Vista}" Value="editar">
+                        <Setter Property="Content" Value="{StaticResource editar}"></Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Vista}" Value="eliminar">
+                        <Setter Property="Content" Value="{StaticResource eliminar}"></Setter>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ContentControl.Style>
+    </ContentControl>
+</Window>
